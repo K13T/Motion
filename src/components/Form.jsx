@@ -5,16 +5,16 @@ import axios from 'axios';
 import './UserLogin.css'; // Import file CSS tùy chỉnh
 
 const schema = {
-  title: 'MỜI NHẬP TÀI KHOẢN',
+  title: 'SIGN IN',
   type: 'object',
-  required: ['username', 'password', 'gender', 'height', 'weight', 'medicalHistory'],
+  required: ['username', 'password', 'gender', 'height', 'weight', 'phone'],
   properties: {
-    username: { type: 'string', title: 'TÊN BỆNH NHÂN' },
-    password: { type: 'string', title: 'MÃ SỐ', format: 'password' },
-    gender: { type: 'string', title: 'GIỚI TÍNH', enum: ['Nam', 'Nữ', 'Khác'] },
+    username: { type: 'string', title: 'HỌ TÊN' },
+    password: { type: 'string', title: 'ID', format: 'password' },
+    gender: { type: 'string', title: 'GIỚI TÍNH', enum: ['Nam', 'Nữ'] },
     height: { type: 'number', title: 'CHIỀU CAO (cm)' },
     weight: { type: 'number', title: 'CÂN NẶNG (kg)' },
-    medicalHistory: { type: 'string', title: 'TIỀN SỬ BỆNH', format: 'textarea' },
+    phone: { type: 'number', title: 'SĐT' },
   },
 };
 
