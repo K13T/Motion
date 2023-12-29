@@ -7,14 +7,14 @@ import './UserLogin.css'; // Import file CSS tùy chỉnh
 const schema = {
   title: 'SIGN IN',
   type: 'object',
-  required: ['username', 'password', 'gender', 'height', 'weight', 'phone'],
+  required: ['username', 'password', 'gender', 'height', 'weight', 'age'],
   properties: {
     username: { type: 'string', title: 'HỌ TÊN' },
     password: { type: 'string', title: 'ID', format: 'password' },
     gender: { type: 'string', title: 'GIỚI TÍNH', enum: ['Nam', 'Nữ'] },
     height: { type: 'number', title: 'CHIỀU CAO (cm)' },
     weight: { type: 'number', title: 'CÂN NẶNG (kg)' },
-    phone: { type: 'number', title: 'SĐT' },
+    age: { type: 'number', title: 'Tuổi' },
   },
 };
 
