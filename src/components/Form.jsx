@@ -12,7 +12,7 @@ const schema = {
     username: { type: 'string', title: 'HỌ TÊN' },
     password: { type: 'string', title: 'ID', format: 'password' },
     gender: { type: 'string', title: 'GIỚI TÍNH', enum: ['Nam', 'Nữ'] },
-    height: { type: 'number', title: 'CHIỀU CAO (m)' },
+    height: { type: 'number', title: 'CHIỀU CAO (cm)' },
     weight: { type: 'number', title: 'CÂN NẶNG (kg)' },
     age: { type: 'number', title: 'Tuổi' },
   },
