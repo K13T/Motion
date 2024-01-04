@@ -1,7 +1,7 @@
 import './App.css';
 import Form from './components/Form';
-import UserList from './components/UserList';
-
+import ThreeScene from './components/Model3D';
+import BMI from './components/BMI';
 function App() {
   return (
     <div className="App">
@@ -12,8 +12,9 @@ function App() {
         <div className="form-container">
           <Form />
         </div>
+        <ThreeScene />
         <div className="user-list-container">
-          <UserList />
+          <BMI />
         </div>
       </main>
     </div>

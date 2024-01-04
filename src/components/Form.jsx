@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
 import axios from 'axios';
-import './UserLogin.css'; // Import file CSS tùy chỉnh
+import './BMI.css'; // Import file CSS tùy chỉnh
 
 const schema = {
   title: 'SIGN IN',
