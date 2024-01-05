@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import Form from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
 import axios from 'axios';
-import './BMI.css'; // Import file CSS tùy chỉnh
+import './Log.css'; // Import file CSS tùy chỉnh
 
 const schema = {
-  title: 'SIGN IN',
-  type: 'object',
+  // title: 'SIGN IN',
+  // type: 'object',
   required: ['username', 'password', 'gender', 'height', 'weight', 'age'],
   properties: {
     username: { type: 'string', title: 'HỌ TÊN' },
     password: { type: 'string', title: 'ID', format: 'password' },
     gender: { type: 'string', title: 'GIỚI TÍNH', enum: ['Nam', 'Nữ'] },
-    height: { type: 'number', title: 'CHIỀU CAO (m)' },
-    weight: { type: 'number', title: 'CÂN NẶNG (kg)' },
-    age: { type: 'number', title: 'Tuổi' },
+    height: { type: 'string', title: 'CHIỀU CAO (m)' },
+    weight: { type: 'string', title: 'CÂN NẶNG (kg)' },
+    age: { type: 'string', title: 'Tuổi' },
   },
 };
 
@@ -25,11 +25,7 @@ const UserLogin = () => {
     try {
       console.log('Dữ liệu gửi đi:', formData);
 
-      const response = await axios.post(
-
-        // 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-tqlme/endpoint/POST_JSON_BACKEND',
-
-        'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-khcpn/endpoint/log_in',
+      const response = await axios.post('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-khcpn/endpoint/log_in',
         formData
       );
 
@@ -44,6 +40,10 @@ const UserLogin = () => {
 
   return (
     <div className="auth-form-container">
+      {/* Thêm một tiêu đề */}
+      <h1>Đăng Nhập</h1>
+
+      {/* Sử dụng Form từ thư viện react-jsonschema-form */}
       <Form
         schema={schema}
         validator={validator}
@@ -51,8 +51,13 @@ const UserLogin = () => {
         onChange={({ formData }) => setFormData(formData)}
         onSubmit={handleSubmit}
       />
+
+      {/* Thêm chú thích hoặc liên kết cho việc đăng ký */}
+      <p>Bạn chưa có tài khoản?</p>
     </div>
   );
 };
 
 export default UserLogin;
+
+

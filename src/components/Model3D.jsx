@@ -153,9 +153,7 @@ const ThreeScene = () => {
             // window.removeEventListener('resize', onWindowResize);
             document.body.removeChild(renderer.domElement);
         };
-    }, []); // Chỉ chạy một lần khi component được mount
-
-    // return <div ref={sceneRef} />;
+    }, []);
 };
 
 export default ThreeScene;
