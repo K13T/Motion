@@ -41,7 +41,7 @@ const UserLogin = () => {
   return (
     <div className="auth-form-container">
       {/* Thêm một tiêu đề */}
-      <h1>Đăng Nhập</h1>
+      <h1>THÔNG TIN</h1>
 
       {/* Sử dụng Form từ thư viện react-jsonschema-form */}
       <Form
@@ -53,7 +53,7 @@ const UserLogin = () => {
       />
 
       {/* Thêm chú thích hoặc liên kết cho việc đăng ký */}
-      <p>Bạn chưa có tài khoản?</p>
+      <p>VUI LÒNG ĐIỀN ĐẦY ĐỦ THÔNG TIN BÊN TRÊN NHA !</p>
     </div>
   );
 };
