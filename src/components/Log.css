@@ -4,8 +4,9 @@
   padding: 37px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  background-color: #fff;
+  background-color: #f2f3e9;
   text-align: center;
+  height: 600px;
 }
 
 /* Điều chỉnh kích thước chữ và căn chỉnh cho các trường input */
@@ -14,10 +15,9 @@ input[type="password"],
 select,
 textarea {
   width: 100%;
-  padding: 15px;
+  padding: 6px;
   margin-bottom: 20px;
-  font-size: 30px;
-  /* Tăng kích thước chữ */
+  font-size: 28px;
   box-sizing: border-box;
 }
 

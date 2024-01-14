@@ -3,7 +3,8 @@ import './App.css';
 import Form from './components/Log';
 import ThreeScene from './components/Model3D';
 import GaugeExample from './components/Gauge';
-
+import Dashboard from './components/Dashboard';
+// import UserList from './components/UserList';
 const App = () => {
   const [currentPage, setCurrentPage] = useState(null);
 
@@ -13,15 +14,19 @@ const App = () => {
 
   const renderUI = () => {
     switch (currentPage) {
-      case 'register':
+      case 'infor':
         return <Form />;
       case 'threeScene':
         return (
           <>
             <ThreeScene />
-            {/* <GaugeExample /> */}
+
+            <GaugeExample />
           </>
         );
+      /////////
+      case 'Dashboard':
+        return <Dashboard />;
       default:
         return null;
     }
@@ -40,9 +45,10 @@ const App = () => {
 
       <div className="menu">
         {/* Nút chuyển đổi giữa các trang */}
-        <button onClick={() => handleButtonClick('register')}>Register</button>
-        <button onClick={() => handleButtonClick('threeScene')}>Three Scene</button>
-        {/* <button onClick={() => setCurrentPage('gaugeExample')}>Gauge Example</button> */}
+        <button onClick={() => handleButtonClick('infor')}>Information</button>
+        <button onClick={() => handleButtonClick('threeScene')}>ThreeScene</button>
+        <button onClick={() => handleButtonClick('Dashboard')}>Dashboard</button>
+
       </div>
 
       <div className="form-container">
@@ -51,41 +57,4 @@ const App = () => {
       </div>
     </div>
   );
-};
-
-export default App;
-
-
-
-
-
-/////////////////////////////////////////////
-
-// import './App.css';
-// import Form from './components/Log';
-// import ThreeScene from './components/Model3D';
-// import GaugeExample from './components/Gauge';
-// function App() {
-//   return (
-//     <div className="App">
-//       <header>
-//         <h1 className="app-title">PROFILE MOTION</h1>
-//       </header>
-//       <main>
-
-//         <div className="form-container">
-//           <Form />
-//         </div>
-//         {/* Comment hoặc xóa dòng dưới để bỏ hiển thị ThreeScene */}
-//         <ThreeScene />
-//         {/* Comment hoặc xóa dòng dưới để bỏ hiển thị BMI */}
-//         {/* <div className="user-list-container">
-//           <BMI />
-//         </div> */}
-//         <GaugeExample />
-//       </main>
-//     </div>
-//   );
-// }
-
-// export default App;
+}; export default App;

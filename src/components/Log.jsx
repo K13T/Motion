@@ -7,14 +7,14 @@ import './Log.css'; // Import file CSS tùy chỉnh
 const schema = {
   // title: 'SIGN IN',
   // type: 'object',
-  required: ['username', 'password', 'gender', 'height', 'weight', 'age'],
+  required: ['username', 'password', 'gender', 'height', 'weight', 'where'],
   properties: {
-    username: { type: 'string', title: 'HỌ TÊN' },
-    password: { type: 'string', title: 'ID', format: 'password' },
-    gender: { type: 'string', title: 'GIỚI TÍNH', enum: ['Nam', 'Nữ'] },
-    height: { type: 'string', title: 'CHIỀU CAO (m)' },
-    weight: { type: 'string', title: 'CÂN NẶNG (kg)' },
-    age: { type: 'string', title: 'Tuổi' },
+    username: { type: 'string', title: 'NAME :' },
+    password: { type: 'string', title: 'ID :', format: 'password' },
+    gender: { type: 'string', title: 'GENDER :', enum: ['MALE', 'FEMALE'] },
+    height: { type: 'number', title: 'HEIGHT :' },
+    weight: { type: 'number', title: 'WEIGHT :' },
+    where: { type: 'string', title: 'LOCATION :' },
   },
 };
 
@@ -38,10 +38,11 @@ const UserLogin = () => {
     }
   };
 
+
   return (
     <div className="auth-form-container">
       {/* Thêm một tiêu đề */}
-      <h1>THÔNG TIN</h1>
+      <h1> INFORMATION </h1>
 
       {/* Sử dụng Form từ thư viện react-jsonschema-form */}
       <Form
@@ -53,7 +54,7 @@ const UserLogin = () => {
       />
 
       {/* Thêm chú thích hoặc liên kết cho việc đăng ký */}
-      <p>VUI LÒNG ĐIỀN ĐẦY ĐỦ THÔNG TIN BÊN TRÊN NHA !</p>
+      <p>PLEASE FILL IN ALL REQUIRED INFORMATION !</p>
     </div>
   );
 };
