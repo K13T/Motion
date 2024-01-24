@@ -3,6 +3,16 @@
 import React, { useState, useEffect } from 'react';
 import GaugeChart from 'react-gauge-chart';
 import Thermometer from 'react-thermometer-component';
+import forward from './forward.png';
+import backward from './backward.png';
+import rightward from './rightward.png';
+import leftward from './leftward.png';
+import fun from './fun.png';
+import sad from './sad.png';
+import rice from './rice.png';
+import water from './water.png';
+import sleep from './sleep.png';
+import wc from './wc.png';
 
 // Hàm chuyển đổi giá trị độ thành phần trăm
 function degreeToPercentage(degree) {
@@ -18,11 +28,11 @@ const Temp = ({ value, title }) => {
     // Hàm để xác định màu sắc dựa trên giá trị nhiệt độ
     const getBackgroundColor = (temp) => {
         if (temp >= 0 && temp <= 37.5) {
-            return 'green'; // Màu xanh
+            return 'green';
         } else if (temp > 37.5 && temp <= 40) {
-            return 'orange'; // Màu cam
+            return 'orange';
         } else {
-            return 'red'; // Màu đỏ
+            return 'red';
         }
     };
 
@@ -81,16 +91,13 @@ const GaugeExample = () => {
         }
     };
     useEffect(() => {
-        // Gọi fetchData một lần khi component được mount
         fetchData();
-
-        // Thiết lập interval để lấy dữ liệu mỗi 5 giây (hoặc bất kỳ khoảng thời gian nào bạn muốn)
         const intervalId = setInterval(() => {
             fetchData();
-        }, 1000); // mỗi 5 giây
+        }, 1000);
 
         return () => clearInterval(intervalId);
-    }, []); // Chạy một lần khi component được mount
+    }, []);
 
     //////
 
@@ -180,12 +187,66 @@ const GaugeExample = () => {
                     </td>
                 </tr>
                 <tr>
+                    <td style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '16px', border: '1px solid #ddd', padding: '8px', verticalAlign: 'top' }}>
+
+                        {/* Bảng QUY ƯỚC TÍN HIỆU */}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <h2 style={{ marginBottom: '0' }}>QUY ƯỚC TÍN HIỆU</h2>
+
+                            {/* CÚI ĐẦU */}
+                            {gaugeData.Roll >= 20 && gaugeData.Roll <= 37 ? (
+                                <p style={{ color: 'green', fontSize: '27px', fontWeight: 'bold' }}>MUỐN ĐI VỀ TRƯỚC <img src={forward} alt="forward" style={{ width: '72px', height: '72px' }} /></p>
+                            ) : (gaugeData.Roll <= -20 && gaugeData.Roll >= -37 ? (
+                                <p style={{ color: 'red', fontSize: '27px', fontWeight: 'bold' }}>MUỐN ĐI VỀ SAU <img src={backward} alt="backward" style={{ width: '72px', height: '72px' }} /></p>
+                            ) : <p></p>)}
+                            {/* Điều kiện lớn */}
+                            {gaugeData.Roll > 37 ? (
+                                <p style={{ color: 'green', fontSize: '27px', fontWeight: 'bold' }}>
+                                    SỰ ĐỒNG Ý <img src={fun} alt="fun" style={{ width: '72px', height: '72px', display: 'block', margin: '0 auto' }} /></p>) : null}
+                            {gaugeData.Roll < -37 ? (
+                                <p style={{ color: 'red', fontSize: '27px', fontWeight: 'bold' }}>
+                                    KHÔNG ĐỒNG Ý <img src={sad} alt="sad" style={{ width: '72px', height: '72px', display: 'block', margin: '0 auto' }} /></p>) : null}
+                            {/* //////////////////////////////////////////////////////// */}
+
+                            {/* NGHIÊNG ĐẦU */}
+                            {gaugeData.Pitch >= 20 && gaugeData.Pitch <= 37 ? (
+                                <p style={{ color: 'green', fontSize: '27px', fontWeight: 'bold' }}>MUỐN ĐI BÊN PHẢI <img src={rightward} alt="rightward" style={{ width: '72px', height: '72px' }} /></p>
+                            ) : (gaugeData.Pitch <= -20 && gaugeData.Pitch >= -37 ? (
+                                <p style={{ color: 'red', fontSize: '27px', fontWeight: 'bold' }}>MUỐN ĐI BÊN TRÁI <img src={leftward} alt="leftward" style={{ width: '72px', height: '72px' }} /></p>
+                            ) : <p></p>)}
+
+                            {/* Điều kiện lớn */}
+                            {gaugeData.Pitch > 37 ? (
+                                <p style={{ color: 'green', fontSize: '27px', fontWeight: 'bold' }}>
+                                    MUỐN ĐI ĂN <img src={rice} alt="rice" style={{ width: '72px', height: '72px', display: 'block', margin: '0 auto' }} /></p>) : null}
+                            {gaugeData.Pitch < -37 ? (
+                                <p style={{ color: 'red', fontSize: '27px', fontWeight: 'bold' }}>
+                                    MUỐN UỐNG NƯỚC <img src={water} alt="water" style={{ width: '72px', height: '72px', display: 'block', margin: '0 auto' }} /></p>) : null}
+                            {/* //////////////////////////////////////////////////////// */}
+
+
+                            {/* Điều kiện nhỏ */}
+                            {gaugeData.Yaw >= 20 && gaugeData.Yaw <= 37 ? (
+                                <p style={{ color: 'green', fontSize: '27px', fontWeight: 'bold' }}>CẢM THẤY VUI <img src={fun} alt="fun" style={{ width: '72px', height: '72px' }} /></p>
+                            ) : (gaugeData.Yaw <= -20 && gaugeData.Yaw >= -37 ? (
+                                <p style={{ color: 'red', fontSize: '27px', fontWeight: 'bold' }}>CẢM THẤY MỆT <img src={sad} alt="sad" style={{ width: '72px', height: '72px' }} /></p>
+                            ) : <p></p>)}
+                            {/* Điều kiện lớn */}
+                            {gaugeData.Yaw > 37 ? (
+                                <p style={{ color: 'green', fontSize: '27px', fontWeight: 'bold' }}>
+                                    MUỐN ĐI NGỦ <img src={sleep} alt="sleep" style={{ width: '72px', height: '72px', display: 'block', margin: '0 auto' }} /></p>) : null}
+                            {gaugeData.Yaw < -37 ? (
+                                <p style={{ color: 'red', fontSize: '27px', fontWeight: 'bold' }}>
+                                    MUỐN ĐI VỆ SINH <img src={wc} alt="wc" style={{ width: '72px', height: '72px', display: 'block', margin: '0 auto' }} /></p>) : null}
+                        </div>
+                    </td>
                     <td colSpan="3" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '18px', border: '1px solid #ddd', padding: '8px' }}>
                         <Temp value={gaugeData.Nhiet_Do_Phong} title={<span style={{ color: 'yellow' }}>Nhiet_Do_Phong</span>} />
                         <Temp value={gaugeData.Nhiet_Do_Dau} title={<span style={{ color: 'yellow' }}>Nhiet_Do_Dau</span>} />
 
                         {gaugeData.Nhiet_Do_Dau < 37.5 ? <p style={{ color: 'green' }}>KHỎE MẠNH</p> : (gaugeData.Nhiet_Do_Dau > 37.5 ? <p style={{ color: 'red' }}>BỊ ỐM</p> : <p></p>)}
                     </td>
+
                 </tr>
             </tbody>
         </table>

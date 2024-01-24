@@ -82,14 +82,12 @@ const ThreeScene = () => {
 
                 async function fetchData() {
 
-                    fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-khcpn/endpoint/Get_motion')
-                        // const response = await axios.get('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-khcpn/endpoint/Get_motion')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Cannot Connect');
-                            }
-                            return response.json();
-                        })
+                    fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-khcpn/endpoint/Get_motion').then(response => {
+                        if (!response.ok) {
+                            throw new Error('Cannot Connect');
+                        }
+                        return response.json();
+                    })
                         .then(data => {
 
                             const Daux = data[0]?.public?.input?.jsonData?.Roll;
@@ -102,18 +100,8 @@ const ThreeScene = () => {
                         .catch(error => {
                             console.error('There was a problem with the fetch operation:', error);
                         });
-                }
-
-                fetchData();
+                } fetchData();
                 setInterval(fetchData, 100);
-
-                // Cập nhật scene khi model đã được tải
-                // sceneRef.current.add(scene);
-
-                // Khởi tạo OrbitControls
-                // const controls = new OrbitControls(camera, sceneRef.current);
-                // controls.target.set(0, 1, 0);
-                // controls.update();
             });
 
             // Khởi tạo renderer và thêm vào DOM

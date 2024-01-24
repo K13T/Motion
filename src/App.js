@@ -4,7 +4,7 @@ import Form from './components/Log';
 import ThreeScene from './components/Model3D';
 import GaugeExample from './components/Gauge';
 import Dashboard from './components/Dashboard';
-// import UserList from './components/UserList';
+import UserList from './components/UserList';
 const App = () => {
   const [currentPage, setCurrentPage] = useState(null);
 
@@ -27,28 +27,28 @@ const App = () => {
       /////////
       case 'Dashboard':
         return <Dashboard />;
+      case 'UserList':
+        return <UserList />;
       default:
         return null;
     }
-  };
-
-  // return (
-  //   <div>
-  //     <header>
-  //       <h1 className="app-title">PROFILE MOTION</h1>
-
-  return (
+  }; return (
     <div className="App">
       <header>
-        <h1 className="app-title">PROFILE MOTION</h1>
+        <img
+          src={process.env.PUBLIC_URL + '/logo.png'}
+          alt="Logo"
+          className="app-logo"
+        />
+        <h1 className="app-title"> SIMULATION SYSTEM OF HUMAN MOTION - PART HEAD </h1>
       </header>
 
       <div className="menu">
         {/* Nút chuyển đổi giữa các trang */}
-        <button onClick={() => handleButtonClick('infor')}>Information</button>
-        <button onClick={() => handleButtonClick('threeScene')}>ThreeScene</button>
-        <button onClick={() => handleButtonClick('Dashboard')}>Dashboard</button>
-
+        <button style={{ marginRight: '10px' }} onClick={() => handleButtonClick('infor')}>Information</button>
+        <button style={{ marginRight: '10px' }} onClick={() => handleButtonClick('threeScene')}>ThreeScene</button>
+        <button style={{ marginRight: '10px' }} onClick={() => handleButtonClick('Dashboard')}>Dashboard</button>
+        <button onClick={() => handleButtonClick('UserList')}>UserList</button>
       </div>
 
       <div className="form-container">

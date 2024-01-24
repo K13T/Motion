@@ -5,8 +5,7 @@ import axios from 'axios';
 import './Log.css'; // Import file CSS tùy chỉnh
 
 const schema = {
-  // title: 'SIGN IN',
-  // type: 'object',
+
   required: ['username', 'password', 'gender', 'height', 'weight', 'where'],
   properties: {
     username: { type: 'string', title: 'NAME :' },

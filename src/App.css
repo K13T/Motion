@@ -3,13 +3,36 @@
   text-align: center;
 }
 
+
+
+
+
 header {
-  background-color: #dbea10;
-  padding: 20px;
+  background-color: #f70808;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* Căn giữa theo chiều ngang */
 }
 
+.app-logo {
+  max-height: 160px;
+  margin-right: auto;
+}
+
+
+.app-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
 h1.app-title {
-  color: #f00c0c;
+  color: #3d13f8;
 }
 
 main {
@@ -19,8 +42,6 @@ main {
   margin-top: 20px;
 }
 
-/* 
-background cũ */
 /* .form-container {
   width: 96%;
   height: 650px;
@@ -28,9 +49,8 @@ background cũ */
   background-color: #f0f0f0;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-image: url('/public/logo13.png'); */
-/* Nếu ảnh nằm trong thư mục public/logo192.png */
-/* background-size: cover;
+  background-image: url('/public/logo13.png');
+  background-size: cover;
   background-position: center;
-  position: relative; */
-/* } */
+  position: relative;
+} */
