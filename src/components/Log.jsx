@@ -10,7 +10,7 @@ const schema = {
   properties: {
     username: { type: 'string', title: 'NAME :' },
     password: { type: 'string', title: 'ID :', format: 'password' },
-    gender: { type: 'string', title: 'GENDER :', enum: ['MALE', 'FEMALE'] },
+    gender: { type: 'string', title: 'GENDER :', enum: ['Male', 'Female'] },
     height: { type: 'number', title: 'HEIGHT :' },
     weight: { type: 'number', title: 'WEIGHT :' },
     where: { type: 'string', title: 'LOCATION :' },
@@ -21,6 +21,10 @@ const UserLogin = () => {
   const [formData, setFormData] = useState({});
 
   const handleSubmit = async ({ formData }) => {
+    if (!window.confirm('Bạn có chắc chắn về thông tin này không?')) {
+      return;
+    }
+
     try {
       console.log('Dữ liệu gửi đi:', formData);
 
@@ -29,18 +33,15 @@ const UserLogin = () => {
       );
 
       console.log('Kết quả từ server:', response.data);
-
-      // Reset form sau khi submit thành công
       setFormData({});
     } catch (error) {
       console.error('Lỗi khi gửi dữ liệu:', error);
     }
   };
 
-
   return (
     <div className="auth-form-container">
-      {/* Thêm một tiêu đề */}
+
       <h1> INFORMATION </h1>
 
       {/* Sử dụng Form từ thư viện react-jsonschema-form */}
@@ -52,12 +53,10 @@ const UserLogin = () => {
         onSubmit={handleSubmit}
       />
 
-      {/* Thêm chú thích hoặc liên kết cho việc đăng ký */}
       <p>PLEASE FILL IN ALL REQUIRED INFORMATION !</p>
     </div>
   );
 };
 
 export default UserLogin;
-
 
