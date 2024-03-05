@@ -16,7 +16,7 @@ const schema = {
     where: { type: 'string', title: 'LOCATION :' },
   },
 };
-
+// biến, hàm để update giá trị
 const UserLogin = () => {
   const [formData, setFormData] = useState({});
 

@@ -7,9 +7,6 @@ import axios from 'axios';
 
 
 const ThreeScene = () => {
-    // const sceneRef = useRef(null);
-
-
 
     useEffect(() => {
         let camera, scene, renderer, Dau, Co1;
@@ -43,16 +40,12 @@ const ThreeScene = () => {
             const maxContainerWidth = 1000;
             const maxContainerHeight = 1000;
             const scaleFactor = Math.min(maxContainerWidth / window.innerWidth, maxContainerHeight / window.innerHeight);
-            // ... (thêm code khởi tạo)
-
             // Khởi tạo GLTFLoader và tải model
             const loader = new GLTFLoader();
             loader.load('https://raw.githubusercontent.com/K13T/3Dtest/master/mohinh.glb', (gltf) => {
                 // Xử lý mô hình 3D
                 const model = gltf.scene;
-                // ... (thêm code xử lý mô hình)
                 console.log(model);
-
                 model.traverse((o) => {
                     if (o.isMesh) {
                         o.material.metalness = false;
@@ -69,7 +62,7 @@ const ThreeScene = () => {
                 const Skeleton = SkinnedMesh.skeleton;
                 const SkeletonHelper = new THREE.SkeletonHelper(Skeleton.bones[0]);
                 SkeletonHelper.skeleton = Skeleton;
-                SkeletonHelper.visible = false;
+                SkeletonHelper.visible = true;
                 scene.add(SkeletonHelper);
 
                 const Bones = SkinnedMesh.skeleton.bones;
@@ -108,7 +101,7 @@ const ThreeScene = () => {
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.outputEncoding = THREE.sRGBEncoding;// code hide
+            renderer.outputEncoding = THREE.sRGBEncoding;
             document.body.appendChild(renderer.domElement);
 
             // Xử lý sự kiện thay đổi kích thước cửa sổ
@@ -117,8 +110,6 @@ const ThreeScene = () => {
             const controls = new OrbitControls(camera, renderer.domElement);
             controls.target.set(0, 1, 0);
             controls.update();
-
-            // Hàm xử lý thay đổi kích thước cửa sổ
 
         };
         function onWindowResize() {
@@ -132,7 +123,6 @@ const ThreeScene = () => {
             renderer.render(scene, camera);
         };
 
-        // Gọi hàm animate để bắt đầu vòng lặp render
         init();
         animate();
 
