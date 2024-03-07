@@ -9,7 +9,7 @@ const schema = {
   required: ['username', 'password', 'gender', 'height', 'weight', 'where'],
   properties: {
     username: { type: 'string', title: 'NAME :' },
-    password: { type: 'string', title: 'ID :', format: 'password' },
+    password: { type: 'string', title: 'PHONE :', format: 'password' },
     gender: { type: 'string', title: 'GENDER :', enum: ['Male', 'Female'] },
     height: { type: 'number', title: 'HEIGHT :' },
     weight: { type: 'number', title: 'WEIGHT :' },
@@ -21,7 +21,7 @@ const UserLogin = () => {
   const [formData, setFormData] = useState({});
 
   const handleSubmit = async ({ formData }) => {
-    if (!window.confirm('Bạn có chắc chắn về thông tin này không?')) {
+    if (!window.confirm('Have you confirmed this information?')) {
       return;
     }
 

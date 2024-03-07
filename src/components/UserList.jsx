@@ -51,14 +51,14 @@ const UserList = () => {
 
     const handleSearch = () => {
         if (!searchTerm) {
-            alert('Vui lòng nhập ID người dùng');
+            alert('Please Enter the Phone Number');
             return;
         }
 
         const result = Object.keys(userData).find(password => password === searchTerm);
 
         if (!result) {
-            alert('Không tìm thấy người dùng với ID này');
+            alert('This Data was not found');
             return;
         }
 
@@ -67,7 +67,7 @@ const UserList = () => {
     };
 
     const handleDelete = async () => {
-        if (!window.confirm('Bạn có chắc chắn muốn xóa người dùng này không?')) {
+        if (!window.confirm('Do you want to delete this data?')) {
             return;
         }
 
@@ -78,7 +78,7 @@ const UserList = () => {
             fetchData();
             setSelectedUser(null);
         } catch (error) {
-            console.error('Lỗi khi xóa người dùng:', error);
+            console.error('Error:', error);
             alert('Không thể xóa người dùng. Vui lòng thử lại sau.');
         }
     };
@@ -89,7 +89,7 @@ const UserList = () => {
             <div className="search-bar">
                 <input
                     type="text"
-                    placeholder="NHẬP ID"
+                    placeholder="Search User By Phone Number"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -134,7 +134,7 @@ const UserList = () => {
                                     <img src={MyImage} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </div>
                                 <p style={{ fontSize: '26px', fontWeight: 'bold' }} className="index-label">STT: {index + 1}</p>
-                                <p style={{ fontSize: '26px', fontWeight: 'bold' }}><strong>ID :</strong> {password}</p>
+                                <p style={{ fontSize: '26px', fontWeight: 'bold' }}><strong>TEL :</strong> {password}</p>
                             </div>
                         ))
                     )}
