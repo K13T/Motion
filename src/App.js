@@ -104,8 +104,9 @@ function App() {
       case 'userList3':
         return (
           <div className="user-list-container visible">
-            <ThreeScene />
             <GaugeExample />
+            <ThreeScene />
+
 
 
           </div>
